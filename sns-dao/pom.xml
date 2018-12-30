@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>sns-project</artifactId>
+        <groupId>org.colin.project</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>sns-dao</artifactId>
+
+    <description>数据仓库</description>
+    <dependencies>
+        <dependency>
+            <groupId>org.colin.project</groupId>
+            <artifactId>sns-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!--core-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ibeetl</groupId>
+            <artifactId>beetl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ibeetl</groupId>
+            <artifactId>beetlsql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>sns-dao</finalName>
+
+        <resources>
+            <!--过滤替换配置文件-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>properties/*.properties</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <!--过滤掉无需替换的文件-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>mapper/*.md</include>
+                    <include>spring/*.xml</include>
+                    <include>*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+
+        <filters>
+            <filter>src/filters/${env}/custom.properties</filter>
+        </filters>
+    </build>
+</project>

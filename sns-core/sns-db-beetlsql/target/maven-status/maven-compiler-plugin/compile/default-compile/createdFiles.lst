@@ -1,0 +1,13 @@
+org\colin\project\db\beetlsql\po\MemberAttachInfoPO.class
+org\colin\project\db\beetlsql\repository\MemberRepository.class
+org\colin\project\db\beetlsql\po\MemberContactInfoPO.class
+org\colin\project\db\beetlsql\po\MemberFansPO.class
+org\colin\project\db\beetlsql\po\MemberRegistionInfoPO.class
+org\colin\project\db\beetlsql\po\MemberTokenPO.class
+org\colin\project\db\beetlsql\dao\MemberDao.class
+org\colin\project\db\beetlsql\po\MemberLoginInfoPO.class
+org\colin\project\db\beetlsql\po\MemberPO.class
+org\colin\project\db\beetlsql\po\MemberHonerInfoPO.class
+org\colin\project\db\beetlsql\dao\BasicDao.class
+org\colin\project\db\beetlsql\po\MemberAddressInfoPO.class
+org\colin\project\db\beetlsql\po\MemberLevelPO.class
