@@ -47,22 +47,39 @@ CREATE TABLE `tbl_member_attach_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS tbl_member;
-CREATE TABLE `tbl_member` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) DEFAULT NULL COMMENT '会员名称',
-  `email` varchar(50) DEFAULT '' COMMENT '邮箱',
-  `phone` varchar(11) DEFAULT '' COMMENT '手机号码',
-  `password` varchar(32) DEFAULT '' COMMENT '密码',
-  `sex` varchar(2) DEFAULT NULL COMMENT '性别',
-  `avatar` varchar(255) DEFAULT NULL COMMENT '头像',
-  `update_time` datetime DEFAULT NULL COMMENT '更新资料时间',
-  `is_active` int(1) DEFAULT '0' COMMENT '是否已激活，0未激活，1已激活',
-  `status` int(2) DEFAULT '0' COMMENT '-1禁用，0启用',
-  `is_deleted` int(11) DEFAULT '0' COMMENT '是否删除',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+create table tbl_member
+(
+  id          int auto_increment
+    primary key,
+  name        varchar(50)            null
+  comment '会员名称',
+  email       varchar(50) default '' null
+  comment '邮箱',
+  phone       varchar(11) default '' null
+  comment '手机号码',
+  password    varchar(32) default '' null
+  comment '密码',
+  sex         varchar(2)             null
+  comment '性别',
+  avatar      varchar(255)           null
+  comment '头像',
+  update_time datetime               null
+  comment '更新资料时间',
+  is_active   int(1) default '0'     null
+  comment '是否已激活，0未激活，1已激活',
+  status      int(2) default '0'     null
+  comment '-1禁用，0启用',
+  is_deleted  int default '0'        null
+  comment '是否删除',
+  operator_id varchar(30)            null
+  comment '用户账号唯一标示，兼容一手机多账号',
+  nick_name   varchar(20)            null
+  comment '用户昵称',
+  constraint email
+  unique (email),
+  constraint name
+  unique (name)
+);
 
 CREATE TABLE `tbl_member_registion_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
